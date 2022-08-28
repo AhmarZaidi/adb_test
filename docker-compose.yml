@@ -4,6 +4,7 @@ services:
     build: .
     container_name: api
     command: bash -c "cd /src/rest && python manage.py runserver 0.0.0.0:8000"
+    # command: bash -c "cd /src/rest && python manage.py makemigrations && python manage.py migrate --no-input && python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
     links:
@@ -30,5 +31,3 @@ services:
     volumes:
       - ${ADBREW_CODEBASE_PATH}/db/:/data/db
     command: /usr/bin/mongod --bind_ip 0.0.0.0
-
-    
